@@ -1,0 +1,1 @@
+var disablePicInPic=document.querySelectorAll('video').forEach((disablePicInPic) => (disablePicInPic.disablePictureInPicture = true));

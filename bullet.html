@@ -1,0 +1,324 @@
+<html lang="en">
+<head>
+    <title>VideoGuesser - Bullet</title>
+    <link rel="stylesheet" type="text/css" href="bullet.css">
+    <link rel="shortcut icon" href="logo ideas/VideoGuesser_logo_v2.png" type="image/png"><!--tab bar icon-->
+    <meta http-equiv="X-Frame-Options" content="deny">
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <meta name="description" content="VideoGuesser is a 4-choice-answer browser game where you watch videos and guess what happens next!">
+    <meta name="keywords" content="VideoGuesser, video guesser, geoguessr, geoguesser, geo guesser, cityguesser, city guesser, higherlowergame, browser game, browser games, higher lower game">
+    <meta name="author" content="ChrisLuhrsVA">
+    <meta property="og:image" content="https://pbs.twimg.com/media/E7TfnyqWYAYYSy6?format=png&name=small"><!--embed thumbnail image-->
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="460">
+    <meta property="og:image:height" content="460">
+    <meta property="og:title" content="VideoGuesser - Guess What Happens Next!">
+    <meta property="og:description" content="VideoGuesser is a 4-choice-answer browser game where you watch videos and guess what happens next.">
+    <!--MOBILE-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+<body>
+    <div class="header">
+        <div id="logo-container">
+            <a href="index.html"><img class="videoguesser-logo" src="logo ideas/videoguesser_header_logo_v2.png" alt="VideoGuesser header logo"></a>
+                
+            <a href="index.html"><img class="home-icon-size" src="images/home_icon.png" alt="Home"></a>
+            <!--SETTINGS-->
+            <img class="settings-icon-size" id="settings" src="images/settings_icon_blue.png" alt="Settings">
+            <div id="myModal" class="modal" onbeforeload="handler">
+                <div title="Settings"></div>
+                <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <!--MUSIC-->
+                        <!--
+                        <p class="settings-text-position"><strong>Music</strong>
+                            <audio id="timer_song" class="settings-music-volume-border-width" controls disablePictureInPicture poster="" controlslist="nofullscreen nodownload noremoteplayback noplaybackrate">
+                                <source src="music/timer music/Loopop-Sun-Machine-One.ogg" type="audio/ogg">
+                                <source src="music/timer music/Loopop Sun Machine One.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </p>
+                        <p class="settings-text-position"><strong>Videos</strong>
+                            <audio id="video_volume" class="settings-music-volume-border-width" controls disablePictureInPicture poster="" controlslist="nofullscreen nodownload noremoteplayback noplaybackrate">
+                                <source src="sound effects/game-over-sound.ogg" type="audio/ogg">
+                                <source src="sound effects/game over sound.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </p>
+                        -->
+                        <!--SOUND EFFECTS-->
+                        <!--inline code below: to adjust volume of all 3 sfx with 1 volume slider-->
+                        <!--
+                        <p class="settings-text-position"><strong>Sound Effects</strong>
+                            <audio id="all-sound-effects" onClick="allSoundEffectsVolume();" class="settings-sound-effects-volume-border-width" controls disablePictureInPicture poster="" controlslist="nofullscreen nodownload noremoteplayback noplaybackrate">
+                            </audio>
+                        </p>
+                        -->
+                        <!--LANGUAGE-->
+                        <p class="settings-language-text-position cursor-not-allowed"><strong>Language</strong>
+                            <select class="cursor-not-allowed">
+                                <option value="EN-US">English (US)</option>
+                                <option value="ES">Español</option>
+                                <!--<option class="cursor-not-allowed" value="FR">Français</option>-->
+                                <option value="JA">日本語</option>
+                                <!--<option class="cursor-not-allowed" value="PL">Polski</option>-->
+                                <!--<option class="cursor-not-allowed" value="PT">Português</option>--><!--3rd biggest language for YouTube-->
+                                <option value="RU">Русский</option>
+                                <option value="ZH-CN">中文 (简体)</option>
+                            </select>
+                            <button type="submit" class="cursor-not-allowed">Change Language</button>
+                            <br><strong>(Coming Soon!)</strong>
+                        </p>
+                        <!--DIFFICULTY-->
+                        <!--
+                        <p class="settings-difficulty-text-position"><strong>Difficulty<br>                            
+                            <select class="cursor-not-allowed">
+                                <option class="cursor-not-allowed" value="Normal">Normal (Default)</option>
+                                <option class="cursor-not-allowed"value="Easy">Easy</option>
+                                <option class="cursor-not-allowed"value="Hard">Hard</option>
+                                <option class="cursor-not-allowed"value="Hardcore">Hardcore</option>
+                            </select>
+                            <button type="submit" class="cursor-not-allowed">Change Difficulty</button>
+                            <br>(Coming Soon!)</strong>
+                        </p>
+                        -->
+                        <!--VISUALLY IMPAIRED MODE-->
+                        <!--
+                        <p class="settings-VIM-text-position"><strong>Visually Impaired Mode</strong>
+                           <div class="onoffswitch">
+                               <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
+                               <label class="onoffswitch-label" for="myonoffswitch">
+                                   <span class="onoffswitch-inner"></span>
+                                   <span class="onoffswitch-switch"></span>
+                               </label>
+                           </div>
+                        </p>
+                        -->
+                </div>
+            </div>
+        </div>
+        <div class="header-flexbox">
+            <div class="score-flexbox">
+                <div id="score"></div>
+                <div id="high_score"></div>
+                <div id="lives"></div>
+                <div id="skips"></div>
+            </div>
+        </div>
+        <div id="version-container">
+            <p id="version"></p>
+        </div>
+    </div>
+
+    <!--FIREFOX (Code needs to be above videos)-->
+    <!--<div id="invisibleDivPictureInPicture" style='color:yellow; margin-top:24.5rem; font-size: 20px; z-index:999;'>Temporary Firefox fix🚧></div>-->
+    <div id="invisibleDivTimeSlider"></div>
+    <div id="invisibleDivFullScreenButton"></div>
+
+    <!--Mobile video dimensions are 605x1080-->
+    <!--VIDEOS-->
+    <video id="videoStart" width=100%; height=66.4%; webkit-playsinline playsinline muted>
+        <source src="videos/video55.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video57" class="GoldenVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video57.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video58" class="EmeraldVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video58.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video59" class="EmeraldVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video59.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video60" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video60.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video61" class="GoldenVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video61.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video62" class="EmeraldVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video62.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video63" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video63.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video64" class="EmeraldVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video64.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video65" class="GoldenVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video65.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video66" class="EmeraldVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video66.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video67" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video67.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video68" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video68.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video69" class="GoldenVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video69.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video70" class="GoldenVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video70.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video72" class="EmeraldVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video72.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video73" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video73.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video74" class="EmeraldVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video74.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video75" class="GoldenVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video75.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video76" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video76.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video77" class="GoldenVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video77.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video78" class="EmeraldVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video78.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video79" class="EmeraldVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video79.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video80" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video80.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video81" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video81.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video82" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video82.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video83" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video83.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video84" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video84.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video85" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video85.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video86" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video86.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video87" class="EmeraldVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video87.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video88" class="EmeraldVideo" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video88.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <video id="video94" width=100%; height=66.4%; webkit-playsinline playsinline onKeyDown="function disableKeys() { if ((event.keyCode == 13 || event.keyCode == 32) || (event.keyCode == 37 || event.keyCode == 39)) return false; }" controls disablePictureInPicture poster="" controlsList="nofullscreen nodownload noremoteplayback noplaybackrate" oncontextmenu="{ return false; }">
+        <source src="videos/video94.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <!--GAME OVER BOX-->
+    <div id="gameOverBox" class="hide">
+        <strong style='color:firebrick; font-size:26px;'>Game Over</strong>
+        <p>Current High Score:</p>
+        <p id="currentHighScore"></p>
+        <button id="playAgain" type="button" onclick="reload()">Play Again</button>
+    </div>
+
+    <!--AUDIO-->
+    <audio id="correct_answer_audio" class="settings-volume-border-width">
+        <source src="sound effects/correct answer.ogg" type="audio/ogg">
+        <source src="sound effects/correct answer.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>  
+    <audio id="wrong_answer_audio" class="settings-volume-border-width">
+        <source src="sound effects/wrong answer.ogg" type="audio/ogg">
+        <source src="sound effects/wrong answer.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="game_over_audio" class="settings-volume-border-width">
+        <source src="sound effects/game-over-sound.ogg" type="audio/ogg">
+        <source src="sound effects/game over sound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <!--CREDIT | SUBTITLES | TIMER-->
+    <div>
+        <p id="credit"></p>
+        <p id="subtitles"></p>
+        <!--<div id="30-second-timer" class="timer"></div>-->
+    </div>
+
+    <!--ABCD BUTTONS-->
+    <div class="ABCD-button-grid"><!--blank character in each button div so that they retain size-->
+        <div id="buttonA">⠀</div>
+        <div id="buttonB">⠀</div>
+        <div id="buttonC">⠀</div>
+        <div id="buttonD">⠀</div>
+    </div>
+
+    <!--SKIP VIDEO BUTTON-->
+    <button type="button" id="buttonSkipVideo">SKIP VIDEO</button>
+    <div class="hide"><button type="button" id="buttonPlay">PLAY</button></div><!--don't remove-->
+
+    <footer class="footer"><!--Patreon down here on "About" tab maybe?-->
+        <strong>
+            <a href="https://www.buymeacoffee.com/VideoGuesser" target="_blank">Buy me a coffee ❤️</a><br>
+            <a href="https://www.youtube.com/channel/UCzv024-rPRREjeukw8t2brA/featured" target="_blank">YouTube</a> |
+            <a href="https://discord.gg/3zvrt3wP2x" target="_blank">Discord</a> | 
+            <a href="https://twitter.com/videoguesser" target="_blank">Twitter</a> | <br>
+            <a href="https://www.tiktok.com/@videoguesser" target="_blank">TikTok</a> |
+            <a href="https://www.instagram.com/VideoGuesser" target="_blank">Instagram</a> |
+            <a href="https://www.facebook.com/VideoGuesser" target="_blank">Facebook</a> | <br> 
+            <!--<a href="#">About Us</a> | <a href="#">Privacy</a> | <a href="#">Terms</a>-->
+            &copy VideoGuesser 2021<br>
+            <strong style="color:orange;">Contact: VideoGuesserGame@Gmail.com</strong>
+        </strong>
+    </footer>
+
+    <script type="text/javascript" src="">
+        //DETECT MOBILE
+        //const isMobile = window.matchMedia("only screen and (max-width: 992px)").matches;
+        //if (isMobile) alert('VideoGuesser is not supported on mobile yet.');
+    </script>
+    <script type="text/javascript" src="javascript/main.js"></script>
+    <script type="text/javascript" src="javascript/bullet.js"></script>
+    <script type="text/javascript" src="javascript/remove-download-button-and-picture-in-picture.js"></script>
+    <script type="text/javascript" src="javascript/playTimerSong-stopTimerSong.js"></script>
+    <script type="text/javascript" src="javascript/sound-effects.js"></script>
+    <script type="text/javascript" src="javascript/game_over.js"></script>
+    <script type="text/javascript" src="javascript/settings.js"></script>
+</body>
+</html>

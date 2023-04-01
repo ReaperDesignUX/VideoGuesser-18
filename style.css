@@ -1,0 +1,409 @@
+/* LOADING SCREEN */
+.page    { display: none; padding: 0 0.5em; }
+.page h1 { font-size: 2em; line-height: 1em; margin-top: 1.1em; font-weight: bold; }
+.page p  { font-size: 1.5em; line-height: 1.275em; margin-top: 0.15em; }
+
+#loading {
+  display: flex;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(192, 192, 192, 0.5);
+  background-image: url("https://i.stack.imgur.com/MnyxU.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/**/
+
+html { font-size: 1rem; }
+body {
+  background-image: url('images/question-mark-background.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0 21.875rem 0 21.875rem;
+  overflow-x: hidden;
+}
+.header {
+  background: skyblue; /* Browsers that don't support gradients */
+  background: -webkit-linear-gradient(#2E9CC1, #27AECC); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#2E9CC1, #27AECC); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#2E9CC1, #27AECC); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#2E9CC1, #27AECC); /* Standard syntax (must be last) */
+  height: 4.7rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.videoguesser-logo {
+  z-index: 1;
+  width: 27rem;
+  height: 5rem;
+}
+
+#version-container { 
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+#version { 
+  margin-top: -1.2rem;
+  color:white;
+  position: absolute;
+  z-index: 999;
+}
+
+/*
+#howToPlay {
+  background:steelblue;
+  color:white;
+  margin: 0;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+*/
+
+.tutorialBoxGrid {
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  background-color: #3277B3;
+
+}
+
+#categories {
+  padding-top: 2rem;
+  margin: 0.1rem auto;
+  position: absolute;
+  text-align: center;
+  left: 0; right: 0; /*Fixes Firefox centering*/ 
+  color:white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.category-box {
+  padding: 2rem 0 0 0;
+  display: grid;
+  flex-direction: row;
+  text-align: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  background-color: #3277B3;
+}
+
+/*For auto vid counter*/
+#classic_num, #streamers_num {color:white;}
+
+.categoryGrid {
+  display: grid;
+  gap: 2rem;
+  padding: 7rem 2rem 7rem 2rem;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  background: url('images/blue_metal.png');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#tutorialBox1, #tutorialBox2, #tutorialBox3, #tutorialBox4 {
+  border: transparent 3px solid;
+  border-radius: 20px/20px;
+  margin-bottom: -1.5rem;
+  background-color: darkblue;
+  color: white;
+  padding: 0.9rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.25rem; 
+}
+
+#bulletBox { 
+  border-radius: 20px/20px;
+  background: linear-gradient(90deg,#FE2C55,50%,#25F4EE); 
+}
+#streamersBox {
+  border-radius: 20px/20px;
+  background: linear-gradient(90deg,purple,50%,orchid); 
+}
+#creatorsBox {
+  border-radius: 20px/20px;
+  background: linear-gradient(90deg,#FE041D,50%,rgb(168, 0, 0)); 
+}
+#classicBox { 
+  border-radius: 20px/20px;
+  background: linear-gradient(90deg,blue,50%,orange); 
+}
+#memesBox { 
+  border-radius: 20px/20px;
+  background: url('images/memes_background.png');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#classic, #streamers, #bullet, #creators {
+  height: 7.5rem;
+  width: 25rem;
+  padding-top: 1.25rem;
+}
+#memes {
+  height: 11.1rem;
+  width: 25rem;
+  margin-bottom: 1.25rem;
+  margin-top: -0.75rem;
+}
+#buttonClassic {
+  border-radius: 20px/20px;
+  outline: none;
+  margin-top: 0.4rem;
+  width: 50%;
+  border: none;
+  color: white;
+  padding: 0.9rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.25rem;
+  background: url('images/button_classic_background.jpg'); /* For browsers that do not support gradients */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*background: -webkit-linear-gradient(90deg,#006e00,50%,green); /* For Safari 5.1 to 6.0 */
+  /*background: -o-linear-gradient(90deg,#006e00,50%,green); /* For Opera 11.1 to 12.0 */
+  /*background: -moz-linear-gradient(90deg,#006e00,50%,green); /* For Firefox 3.6 to 15 */
+  /*background: linear-gradient(90deg,#006e00,50%,green); /* Standard syntax (must be last) */
+  /*box-shadow: 1rem,blue
+  */
+}
+#buttonStreamers {
+    border-radius: 20px/20px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 0.4rem;
+    width: 50%;
+    border: none;
+    color: white;
+    padding: 0.9rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.25rem;
+    background: url('images/retro-city-background2.png'); /* For browsers that do not support gradients */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*background: -webkit-linear-gradient(90deg,#006e00,50%,green); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(90deg,#006e00,50%,green); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(90deg,#006e00,50%,green); /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(90deg,#006e00,50%,green); /* Standard syntax (must be last) */
+    /*box-shadow: 1rem,blue
+    */
+  }
+#buttonCreators {
+    border-radius: 20px/20px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 0.4rem;
+    width: 50%;
+    border: none;
+    color: white;
+    padding: 0.9rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.25rem;
+    background: url('images/button_creators_background.jpg'); /* For browsers that do not support gradients */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*background: -webkit-linear-gradient(90deg,#006e00,50%,green); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(90deg,#006e00,50%,green); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(90deg,#006e00,50%,green); /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(90deg,#006e00,50%,green); /* Standard syntax (must be last) */
+    /*box-shadow: 1rem,blue
+    */
+  }
+#buttonBullet {
+    border-radius: 20px/20px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 0.4rem;
+    width: 50%;
+    border: none;
+    color: white;
+    padding: 0.9rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.25rem;
+    background: url('images/bg.jpg'); /* For browsers that do not support gradients */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*background: -webkit-linear-gradient(90deg,#006e00,50%,green); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(90deg,#006e00,50%,green); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(90deg,#006e00,50%,green); /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(90deg,#006e00,50%,green); /* Standard syntax (must be last) */
+    /*box-shadow: 1rem,blue
+    */
+  }
+#buttonMemes {
+    border-radius: 20px/20px;
+    margin-bottom: -1rem;
+    cursor: pointer;
+    outline: none;
+    margin-top: 0.4rem;
+    width: 50%;
+    border: none;
+    color: white;
+    padding: 0.9rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.25rem;
+    background: url('images/button_memes_background.png'); /* For browsers that do not support gradients */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*background: -webkit-linear-gradient(90deg,#006e00,50%,green); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(90deg,#006e00,50%,green); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(90deg,#006e00,50%,green); /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(90deg,#006e00,50%,green); /* Standard syntax (must be last) */
+    /*box-shadow: 1rem,blue
+    */
+}
+  /*margin-top: 0.5rem; is only for categories*/
+  .footer {
+    background: steelblue; /* Browsers that don't support gradients */
+    background: -webkit-linear-gradient(#2788a8, #1fa5c4); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#2788a8, #1fa5c4); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#2788a8, #1fa5c4); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#2788a8, #1fa5c4); /* Standard syntax (must be last) */
+    position: sticky;
+    height: auto;
+    text-align: center; 
+    font-size: 1rem;
+    color: white;     
+  } a {color: white;}
+
+/*********************************************************************************************/
+
+/* SCREEN SIZES */
+
+/* 1350 */
+@media (max-width: 1350px) { #version { margin-top: -4.6rem; } }
+@media (max-width: 1350px) { #pumper, #pumper2 { display: none; } }
+
+/* 1366 x 375px */
+@media (max-width: 1366px) { .ABCD-button-grid { grid-template-columns: repeat(1fr, 4); } }
+
+/* 1610 */ 
+@media (max-width: 1610px) { .tutorialBoxGrid { grid-template-columns: 1fr; } }
+@media (max-width: 1610px) { .categoryGrid { grid-template-columns: none; } }
+
+/* 2560 x 1440 (Main monitor) */
+@media (min-width: 2560px) { body { margin: 0 30rem 0 30rem } }
+
+/* 3840 x 2160 */
+@media (min-width: 3840px) { .settings-icon-size { margin-left: 98.6%; } }
+
+/*********************************************************************************************/
+
+/* MOBILE */
+
+/* iPhone 6/7/8 */
+@media only screen and (max-width: 375px) { body { overflow-x: hidden; /*margin: 0; padding: 0; top: 0; right: 0; bottom: 0; left: 0;*/ } }
+
+/*This causes a vertical 1 pixel line on the right side of mobile screen*/
+@media only screen and (max-width: 768px) { #version-container { align-items: center; } } 
+@media only screen and (max-width: 768px) { #version { margin-left: 16rem; } }
+
+/* iPhone SE */
+@media only screen and (max-width: 375px) { #howToPlay { margin-right: -0.1rem; } }
+@media only screen and (max-width: 375px) { .tutorialBoxGrid { margin-top: -0.1rem; width: 19.5rem; } }
+@media only screen and (max-width: 375px) { #classic, #streamers, #bullet, #creators, #memes { width: 19rem; } }
+@media only screen and (max-width: 375px) { #classicBox, #streamersBox, #creatorsBox, #bulletBox, #memesBox { width: 100%; } }
+@media only screen and (max-width: 375px) { .categoryGrid { width: 83.5vw; } }
+@media only screen and (max-width: 375px) { footer { margin-right: -0.1rem; } }
+/* SEASONAL/HOLIDAYS */
+@media only screen and (max-width: 375px) { #rickRoll { width: 100%; } }
+@media only screen and (max-width: 375px) { #pumper, #pumper2 { display: none; } }
+
+/* MOBILE */
+@media only screen and (max-width: 768px) { #version-container { align-items: center; } } 
+@media only screen and (max-width: 768px) { #version { margin-left: 2rem; } }
+
+/* iPhone 6/7/8 Plus */
+@media only screen and (max-width: 414px) { .videoguesser-logo { width: 23.5rem; } } /* do not touch */
+
+/* Moto G4 */
+@media only screen and (max-width: 360px) { .videoguesser-logo { width: 23rem; margin-left: 0.5rem; } }
+@media only screen and (max-width: 360px) { .footer { width: 23rem; } }
+
+/* iPhone 5/SE */
+@media only screen and (max-width: 320px) { .videoguesser-logo { margin-left: 3rem;; } }
+@media only screen and (max-width: 320px) { #howToPlay { margin-right: -3rem; } }
+@media only screen and (max-width: 320px) { .footer { width: 23rem; } }
+
+/* iPad Pro */
+@media only screen and (max-width: 1024px) { body { overflow-x: hidden; margin: 0; padding: 0; top: 0; right: 0; bottom: 0; left: 0; } }
+
+/*********************************************************************************************/
+
+/* FIREFOX */
+@-moz-document url-prefix() {
+  .settings-icon-size { margin-bottom: 3rem; }
+
+  #invisibleDivTimeSlider { 
+    background: pink; 
+    position: absolute;
+    margin: 31% 0 0 2.2%;
+    width: 53.1%;
+    height: 5%;
+    z-index: 999;
+  } #invisibleDivTimeSlider:hover { cursor: not-allowed; }
+
+  #invisibleDivFullScreenButton {
+    background: pink; 
+    display: flex;
+    position: absolute;
+    margin: 30% 0 0 61%;
+    width: 3%;
+    height: 8%;
+    z-index: 999;
+  } #invisibleDivFullScreenButton:hover { cursor: not-allowed; }
+}
+
+/*********************************************************************************************/
+
+/* SEASONAL/HOLIDAYS */
+
+/* Halloween */
+#pumper {
+  position: absolute;
+  height: 75px;
+  margin-left: -15.2rem;
+  z-index: 999;
+}
+#pumper2 {
+  position: absolute;
+  width: 75px;
+  z-index: 999;
+  margin-left: 15.6rem;
+}

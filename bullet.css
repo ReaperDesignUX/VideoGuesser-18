@@ -1,0 +1,485 @@
+html { font-size: 1rem; }
+body {
+  background-image: url('images/question-mark-background.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0 21.875rem 0 21.875rem;
+  overflow-x: hidden;
+}
+#score, #high_score, #lives, #skips, .video, video, .A, .B, .C, .D {
+  color: white;
+  text-align: center;
+}
+.header {
+  background: skyblue; /* Browsers that don't support gradients */
+  background: -webkit-linear-gradient(#2E9CC1, #27AECC); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#2E9CC1, #27AECC); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#2E9CC1, #27AECC); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#2E9CC1, #27AECC); /* Standard syntax (must be last) */
+  height: 4.7rem;
+}
+
+.header-flexbox {
+  margin: -8.6rem 0rem 0rem 3.75rem; /*margin-left used to be 12.5 for centering and when logo was on left side*/
+  /*display: grid;*/
+  /*grid-template-areas: 
+  "score-box logo video-category settings";*/
+}
+
+#logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.videoguesser-logo {
+  z-index: 1;
+  width: 27rem;
+  height: 4.7rem;
+}
+
+#version-container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+#version { 
+  margin-top: -1.2rem;
+  color:white;
+  position: absolute;
+  z-index: 999;
+}
+
+.score-flexbox {
+  display: flex;
+  flex-direction: row;
+  margin: 5.95rem 0 0 -3.75rem;
+  height: 4.75rem;
+  z-index: 1;
+}
+#score {
+    font-size: 1.3rem;;
+    background-color: steelblue;
+    width: 6rem;
+    z-index: 1;
+    /*
+    background-image: url(images/matrix_pyramids.jpg);
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: white;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    */
+}
+#high_score {
+    font-size: 1.3rem;;
+    background-color: royalblue;
+    width: 6rem;
+    z-index: 1;
+    /*
+    background-image: url(images/bg.jpg);
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: white;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    */
+}
+#lives {
+  font-size: 1.3rem;
+  background-color: darkgreen;
+  width: 6rem;
+  z-index: 1;
+  /*
+  background-image: url(images/emerald_video.png);
+  -webkit-text-stroke: 1px white;
+  -webkit-text-fill-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  */
+}
+#skips {
+  font-size: 1.3rem;
+  background-color:#BE3300;
+  margin-top: -0rem;
+  width: 6rem;
+  z-index: 1;
+  /*
+  background-image: url(images/gradient_background.jpg);
+  -webkit-text-stroke: 1px white;
+  -webkit-text-fill-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  */
+}
+.home-icon-size {
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: -5rem 2rem 0 69rem;
+  cursor: pointer;
+  z-index: 0;
+}
+.settings-icon-size {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: -4.6rem 0 0 96.25%;
+  cursor: pointer;
+  z-index: 0;
+}
+.settings-text-position { 
+  color: white;
+  padding: 1.75rem 0rem 1.75rem 2.25rem;
+ }
+ .settings-language-text-position {
+   color: white;
+   padding: 1.75rem 0 0 2.25rem;
+ }
+ .settings-difficulty-text-position {
+  cursor: not-allowed;
+  color: white;
+  margin: 0 0 1.75rem 2.25rem;
+}
+.settings-VIM-text-position {
+  color: white;
+  margin: 0 0 2.75rem 2.25rem;
+}
+.cursor-not-allowed { cursor: not-allowed; }
+.modal-content {
+  background-color: steelblue;
+  padding-bottom: 1rem;
+  right: 21.9rem;
+  margin-top: 2.1rem;
+  border: 0.2rem solid orange;
+  width: 12.5rem;
+  position: absolute;
+  z-index: 1;
+}
+.close { /*X button for settings*/
+  margin: 0.2rem 1rem 0 0;
+  color: darkorange;
+  float: right;
+  font-size: 1.75rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* ON/OFF button starts here */
+.onoffswitch {
+  position: relative; width: 90px; margin: -2.5rem 0 0 2.25rem;
+  /*-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;*/
+}
+.onoffswitch-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+  display: block; width: 200%; margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+  font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: "OFF";
+  padding-left: 10px;
+  background-color: #EEEEEE; color: #999999;
+}
+.onoffswitch-inner:after {
+  content: "ON";
+  padding-right: 10px;
+  background-color: #34A7C1; color: #FFFFFF;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block; width: 18px; margin: 6px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 56px;
+  border: 2px solid #999999; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px; 
+}
+/* ON/OFF button ends here */
+
+/* VIDEO */
+video { background-color: black; }
+video:focus { outline: none; }
+video::-webkit-media-controls-play-button {
+  border: none;
+  cursor: pointer;
+  background-size: 2rem;
+  background-repeat: no-repeat;
+}
+video::-webkit-media-controls-volume-slider {
+	border: 0px;
+	border-radius: 5px;
+	background-color: #1abc9c;
+	cursor: pointer;
+}
+.GoldenVideo {
+  background-image: url(images/golden_video.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.EmeraldVideo {
+  background-image: url(images/emerald_video.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.black { color: black; }
+
+/* GAME OVER BOX */
+#gameOverBox {
+  position: fixed;
+  margin: -25rem 0 0 33rem;
+  padding: 1rem 0 1rem 0;
+  text-align: center;
+  color: white;
+  background-color: skyblue;
+  width: 10rem;
+  height: 8.8rem;
+  border: orange 3px solid;
+}
+#currentHighScore {
+  margin-top: -0.5rem;
+  font-size: 30px;
+}
+#playAgain {
+  position: relative;
+  bottom: 1rem;
+}
+
+/*
+.video {
+  cursor: not-allowed;
+}
+*/
+video::-webkit-media-controls-timeline,video::-webkit-media-controls-seek-back-button,video::-webkit-media-controls-seek-forward-button,
+video::-webkit-media-controls-current-time-display,video::-webkit-media-controls-time-remaining-display,
+video::-webkit-media-controls-rewind-button,video::-webkit-media-controls-return-to-realtime-button,
+video::-webkit-media-controls-toggle-closed-captions-button {
+  display: none;
+}
+audio::-webkit-media-controls-play-button,audio::-webkit-media-controls-timeline,audio::-webkit-media-controls-seek-back-button,
+audio::-webkit-media-controls-seek-forward-button,audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,video::-webkit-media-controls-fullscreen-button {
+  display: none;
+} audio:focus { outline: none; }
+
+.settings-music-volume-border-width { /*for volume in settings*/
+  position: absolute;
+  width: 61%;
+  margin: 1.25rem 0 0 -2.8rem;
+}
+.settings-sound-effects-volume-border-width { /*for volume in settings*/
+  position: absolute;
+  width: 61%;
+  margin: 1.5rem 0 0 -6rem;
+}
+#subtitles {
+  z-index: 998;
+  position: relative;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 1.6rem;
+  margin: 0;
+}
+#credit {
+  z-index: 998;
+  position: relative;
+  /*position: static;*/ /*this stops the credit box from going outside of the video*/ 
+  color: white;
+  background-color: black;
+  margin: 0;
+}
+.timer {
+  width: auto;
+  text-align: center;
+  font-size: 1.6rem;
+  background-color: black;
+  color: red;
+}
+.ABCD-button-grid {
+  margin-top: 0.3rem;
+  display: grid;
+  gap: 0.33rem;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+  #buttonA, #buttonB, #buttonC, #buttonD {
+    z-index: 999;
+    cursor: pointer;
+    background-color: darkblue;
+    color: white;
+    padding: 0.9rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.25rem; 
+  }#buttonA:hover, #buttonB:hover, #buttonC:hover, #buttonD:hover {
+    background-color: blue;
+  } button { cursor: pointer; }
+
+  #buttonSkipVideo {
+    cursor: pointer;
+    margin-top: 0.4rem;
+    width: 100%;
+    background-color:rgb(190, 51, 0);
+    border: none;
+    color: white;
+    padding: 0.9rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.25rem;
+  }#buttonSkipVideo:hover {
+    background-color:orangered;
+  }
+
+  .hide { display: none; } /* for the play button */
+
+  .footer {
+    background: steelblue; /* Browsers that don't support gradients */
+    background: -webkit-linear-gradient(#2788a8, #1fa5c4); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#2788a8, #1fa5c4); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#2788a8, #1fa5c4); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#2788a8, #1fa5c4); /* Standard syntax (must be last) */
+    position: sticky;
+    margin-top: 0.5rem;
+    height: auto;
+    text-align: center; 
+    font-size: 1rem;
+    color: white;   
+  } a {color: white;}
+
+/*********************************************************************************************/
+
+/* SCREEN SIZES */
+
+/* 1315 */
+@media (max-width: 1315px) { #version { margin-top: -4.6rem; } }
+
+/* 1366 x 768*/
+@media (max-width: 1366px) { #logo-container { align-items: flex-start; } }
+@media (max-width: 1366px) { .videoguesser-logo { margin-left: 0%; width: 24.05rem; } }
+@media (max-width: 1366px) { .score-flexbox { margin: 6rem 0 0 -3.75rem; } }
+@media (max-width: 1366px) { .header { background-color: lightskyblue; height: 9.45rem; } }
+@media (max-width: 1366px) { .header-flexbox { margin: -3.89rem 0rem 0rem 3.75rem; } }
+@media (max-width: 1366px) { .home-icon-size { margin-top: -20.5%; margin-left: 85.8%; } }
+@media (max-width: 1366px) { #version { margin: -9.25rem 0 0 31%; } }
+@media (max-width: 1366px) { video { height: 35.5%; } }
+
+/* 1536 x 768
+(Ben's laptop) */ 
+@media (max-width: 1536px) { .home-icon-size { margin-right: 24rem; } }
+@media (max-width: 1536px) { .settings-icon-size { margin-right: 1rem; } }
+@media (max-width: 1536px) { .videoguesser-logo { /* margin-left: 42.75%; */ width: 20.5rem; } }
+
+/* 2560 x 1440 (Main monitor) */
+@media (min-width: 2560px) { .home-icon-size { margin-left: 107.5rem; } }
+@media (min-width: 2560px) { .settings-icon-size { margin-left: 97.5%; } }
+@media (min-width: 2560px) { #version { margin: -0.7% 0 0 68.2%; } }
+@media (min-width: 2560px) { #gameOverBox { margin-top: -20%; margin-left: 33%; } }
+@media (min-width: 2560px) { video::-webkit-media-controls-play-button { margin-left: -1.8rem; } }
+
+/* 3840 x 2160 */
+@media (min-width: 3840px) { .home-icon-size { position: absolute; margin-left: -20rem; } }
+@media (min-width: 3840px) { .settings-icon-size { margin-left: 98.6%; } }
+@media (min-width: 3840px) { #version { margin: -0.5% 0 0 78.9%; } }
+@media (min-width: 3840px) { #gameOverBox { margin-top: -20%; margin-left: 38.75%; } }
+
+/*********************************************************************************************/
+
+/* MOBILE - Chrome: 375x667 */
+@media only screen and (max-width: 768px) { body { overflow-x: hidden; margin: 0; /*padding: 0; top: 0; right: 0; bottom: 0; left: 0;*/ } }
+@media only screen and (max-width: 768px) { #version-container { align-items: center; } } 
+@media only screen and (max-width: 768px) { #version { margin-left: 2rem; } }
+@media only screen and (max-width: 768px) { .videoguesser-logo { width: 75vw; } }
+@media only screen and (max-width: 768px) { .home-icon-size { position: absolute; margin-left: 17.5rem; margin-top: -4.8rem; } }
+@media only screen and (max-width: 768px) { .settings-icon-size { position: absolute; margin-left: 20.6rem; margin-top: 0.25rem; } }
+@media only screen and (max-width: 768px) { .modal-content { top: 7.3rem; right: 0; } }
+@media only screen and (max-width: 768px) { .score-flexbox { margin: 3.9rem 0 0 -3.75rem; } }
+@media only screen and (max-width: 768px) { video { height: 60%; } }
+@media only screen and (max-width: 768px) { #gameOverBox { z-index: 999; position: absolute; margin-left: 6.8rem; margin-top: -12.25rem; } }
+
+/* iPad */
+
+
+/* iPad Pro */
+@media only screen and (max-width: 1024px) { body { margin: 0; } }
+
+/*********************************************************************************************/
+
+/* OPERA */
+/* Breaks header UI on all browsers */
+/*
+@media only screen and (max-width: 768px) { 
+  -o-prefocus, .videoguesser-logo {
+  margin-left: 2rem;
+}}
+@media only screen and (max-width: 768px) { 
+  -o-prefocus, .home-icon-size {
+  padding-right: 35px;
+}}
+*/
+
+/*********************************************************************************************/
+
+/* FIREFOX */
+@-moz-document url-prefix() {
+  .header-flexbox { margin-top: -11.6rem; }
+
+  .settings-icon-size { margin-bottom: 3rem; }
+
+  #invisibleDivTimeSlider { 
+    z-index: 997;
+    background: transparent;
+    position: absolute;
+    margin: 30% 0 0 2.2%;
+    width: 53.3%;
+    height: 18%;
+  }
+  #invisibleDivFullScreenButton {
+    z-index: 997;
+    background: transparent;
+    position: absolute;
+    margin: 30% 0 0 60.9%;
+    width: 3%;
+    height: 18%;
+  }
+  /*
+  #invisibleDivPictureInPicture {
+    z-index: 999;
+    background: black;
+    position: absolute;
+    margin: 18% 0 0 59.9%;
+    width: 8%;
+    height: 16%;
+  }
+  */
+}

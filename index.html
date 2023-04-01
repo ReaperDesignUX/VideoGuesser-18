@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+    <title>VideoGuesser</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="logo ideas/VideoGuesser_logo_v2.png" type="image/png"><!--tab bar icon-->
+    <meta http-equiv="X-Frame-Options" content="deny">
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <meta name="description" content="VideoGuesser is a 4-choice-answer browser game where you watch videos and guess what happens next!">
+    <meta name="keywords" content="VideoGuesser, video guesser, geoguessr, geoguesser, geo guesser, cityguesser, city guesser, higherlowergame, browser game, browser games, higher lower game">
+    <meta name="author" content="ChrisReaperVA">
+    <meta property="og:image" content="https://pbs.twimg.com/media/E7TfnyqWYAYYSy6?format=png&name=small"><!--embed thumbnail image-->
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="460">
+    <meta property="og:image:height" content="460">
+    <meta property="og:title" content="VideoGuesser - Guess What Happens Next!">
+    <meta property="og:description" content="VideoGuesser is a 4-choice-answer browser game where you watch videos and guess what happens next.">
+    <!--MOBILE-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--LOADING SCREEN-->
+    <!--
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
+    <div class="page">
+      <h1>The standard Lorem Ipsum passage</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div id="loading"></div>
+-->
+</head>
+<body>
+    <div class="header">
+        <img class="videoguesser-logo" src="logo ideas/videoguesser_header_logo_v2.png" alt="VideoGuesser logo">
+        <!--<img id="pumper" src="images/halloween/pumpkin2.png" alt="Halloween pumpkin"></a>-->
+        <!--<img id="pumper2" src="images/halloween/pumpkin2.png" alt="Halloween pumpkin"></a>-->
+    </div>
+    <div id="version-container">
+        <p id="version"></p>
+    </div>
+
+    <!--Categories-->
+        <!--TUTORIAL BOXES-->
+        <div class="tutorialBoxGrid"><!--blank character in each button div so that they retain size-->
+            <div id="tutorialBox1">Welcome to <strong style='color:skyblue;'>Video</strong><strong style='color:orange'>Guesser</strong>!<br>Created in 2021 by <a style="color:red;" href="https://linktr.ee/ChrisReaperVA" target="_blank">ChrisReaperVA</a>.</div>
+            <div id="tutorialBox2">You have <strong style='color:lightgreen'>5 lives</strong> and <strong style='color:orange'>5 skips</strong>.<br>You can <strong style='color:orange'>skip</strong> a video after the answers pop up.</div>
+            <div id="tutorialBox3"><strong style='color:yellow'>Golden videos</strong> give you <strong style='color:yellow'>+2 points</strong>.<br>
+            <strong style='color:lightgreen'>Emerald videos</strong> give you <strong style='color:lightgreen'>+1 life</strong>.<br></div>
+            <div id="tutorialBox4"><strong style='color:lightskyblue'>Diamond videos</strong> give you <strong style="color: yellow">+3 points</strong> and <strong style='color:lightgreen'>+3 lives</strong>.<br>
+                <!--<strong style="color: red">NEW! </strong><strong>👉 Memes video category!</strong>-->
+            </div>
+        </div>
+
+    <div class="category-box">
+        <h1 id="categories">Video Categories</h1>
+        <div class="categoryGrid"><!--blank character in each button div so that they retain size-->
+            <div id="bulletBox">
+                <img src="images/bullet.png" id="bullet" alt='Bullet category logo'>
+                <p style="color:white;"><strong>Bullet category:<br> Short videos such as TikToks!</p></strong>
+                <a href="bullet.html" id="buttonBullet" style="width:12rem;" alt="Play Bullet"><strong>PLAY</strong></a>
+            </div>
+            <div id="streamersBox">
+                <img src="images/streamers.png" id="streamers" alt="Streamers category logo">
+                <p style="color:white;"><strong>Streamers category:<br> Clips from Twitch streamers!</p></strong>
+                <a href="streamers.html" id="buttonStreamers" style="width:12rem;" alt='Play Streamers'><strong>PLAY</strong></a>
+            </div>
+            <div id="creatorsBox">
+                <img src="images/creators.png" id="creators" alt='Creators category logo'>
+                <p style="color:white;"><strong>Creators category:<br> Videos from YouTubers and content creators!</p></strong>
+                <a href="creators.html" id="buttonCreators" style="width:12rem;" alt='Play Creators'><strong>PLAY</strong></a>
+            </div>
+            <div id="classicBox">
+                <img src="images/Classic.png" id="classic" alt='Classic category logo'>
+                <p style="color:white;" alt="Classic category logo"><strong>Classic category:<br> Videos that don't fit in any other category.</p></strong>
+                <a href="classic.html" id="buttonClassic" style="width:12rem;" alt='Play Classic'><strong style="cursor:pointer;">PLAY</strong></button></a>
+            </div>
+            <!--
+            <div id="memesBox">
+                <img src="images/memes.png" id="memes">
+                <p style="color:white;" alt="Memes category logo">
+                <a href="memes.html" id="buttonMemes" style="width:12rem;" alt='Play Memes'><strong style="cursor:pointer;">PLAY</strong></button></a>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <footer class="footer"><!--Patreon down here on "About" tab maybe?-->
+        <strong>
+            <a href="https://www.buymeacoffee.com/VideoGuesser" target="_blank">Buy me a coffee ❤️</a><br>
+            <a href="https://www.youtube.com/channel/UCzv024-rPRREjeukw8t2brA/featured" target="_blank">YouTube</a> |
+            <a href="https://discord.gg/3zvrt3wP2x" target="_blank">Discord</a> | 
+            <a href="https://twitter.com/videoguesser" target="_blank">Twitter</a> | <br>
+            <a href="https://www.tiktok.com/@videoguesser" target="_blank">TikTok</a> |
+            <a href="https://www.instagram.com/VideoGuesser" target="_blank">Instagram</a> |
+            <a href="https://www.facebook.com/VideoGuesser" target="_blank">Facebook</a> | <br> 
+            <!--<a href="#">About Us</a> | <a href="#">Privacy</a> | <a href="#">Terms</a>-->
+            &copy VideoGuesser 2021
+            <br>
+            <strong style="color:orange;">Contact: VideoGuesserGame@Gmail.com</strong>
+        </strong>
+    </footer>
+    
+    <script type="text/javascript">
+        window.onbeforeunload = function() { window.scrollTo(0, 0); }
+
+        //Adblock detector
+        //window.addEventListener("load", () => {
+        //    // (A) TEST FETCH HEADER REQUEST TO GOOGLE ADSENSE
+        //    let test = new Request(
+        //      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+        //      // "https://static.ads-twitter.com/uwt.js",
+        //      { method: "HEAD", mode: "no-cors" }
+        //    );
+        //        
+        //    // (B) FIRE THE REQEST
+        //    fetch(test ).then((res) => {
+        //      return null;
+        //    }).catch((err) => {
+        //      alert("Hi there! VideoGuesser is supported by ads. Please consider disabling your adblock. (You don't have to, but I'd appreciate it)");
+        //    });
+        //});
+
+        //DETECT MOBILE
+        //const isMobile = window.matchMedia("only screen and (max-width: 992px)").matches;
+        //if (isMobile) alert('VideoGuesser is not supported on mobile yet.');
+    </script>
+    <script type='text/javascript' src='javascript/main.js'></script>
+</body>
+</html>

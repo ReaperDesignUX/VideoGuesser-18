@@ -1,0 +1,10 @@
+body {
+    position: absolute;
+    margin: 0;
+    background-image: url('images/question-mark-background.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow-x: hidden;
+}
